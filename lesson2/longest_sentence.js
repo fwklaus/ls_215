@@ -37,21 +37,21 @@ let longText = 'Four score and seven years ago our fathers brought forth' +
   ' the people, for the people, shall not perish from the' +
   ' earth.';
   
-function longestSentence(text) {
-  let sentenceRegex = /\b.*?[?!.]/g;
-  let matches = text.match(sentenceRegex);
-  let longest = '';
+// function longestSentence(text) {
+//   let sentenceRegex = /\b.*?[?!.]/g;
+//   let matches = text.match(sentenceRegex);
+//   let longest = '';
   
-  matches.forEach(sentence => {
-    if (sentence.length > longest.length) {
-      longest = sentence;
-    }
-  });
+//   matches.forEach(sentence => {
+//     if (sentence.length > longest.length) {
+//       longest = sentence;
+//     }
+//   });
   
-  let longestLength = longest.split(' ').length;
-  console.log(longest);
-  console.log(`The longest sentence has ${longestLength} words.`);
-}
+//   let longestLength = longest.split(' ').length;
+//   console.log(longest);
+//   console.log(`The longest sentence has ${longestLength} words.`);
+// }
 
 longestSentence(longText);
 
@@ -70,3 +70,24 @@ longestSentence(longText);
 // Four score and seven years ago our fathers brought forth on this continent a new nation, conceived in liberty, and dedicated to the proposition that all men are created equal.
 
 // The longest sentence has 30 words.
+
+
+
+function longestSentence(text) {
+  let sentenceRegex = /\b.*?[?!.]/g;
+  let matches = text.match(sentenceRegex);
+  let longest = '';
+  let longestLength; 
+
+  matches.forEach(sentence => {
+    longestLength = longest.split(' ').length;
+    let sentenceLength = sentence.split(' ').length;
+    if (sentenceLength > longestLength) {
+      longest = sentence;
+    }
+  });
+
+  longestLength = longest.split(' ').length;
+  console.log(longest);
+  console.log(`The longest sentence has ${longestLength} words.`);
+}
