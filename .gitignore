@@ -1,1 +1,6 @@
 exercises
+assessment
+*.json
+node_modules/
+*.yml
+
